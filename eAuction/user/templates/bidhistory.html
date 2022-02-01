@@ -1,0 +1,33 @@
+{% extends 'userhome.html' %}
+
+{% block main %}
+
+
+<center>
+    <h1>View Bidding History Here!!!</h1>
+    
+    <table>
+    <tr>
+    <th>BiddingID</th>    
+    <th>ProductID</th>
+    <th>UserID</th>
+    <th>Bid Amount</th>
+    <th>Info</th>
+    </tr>   
+    <tr><td colspan="5"><hr></td></tr>
+    {% for row in bidDetails %}
+    <tr>
+    <td>{{row.bid}}</td>
+    <td>{{row.pid}}</td>
+    <td>{{row.uid}}</td>
+    <td>{{row.bidamount}}</td>
+    <td>{{row.info}}</td>
+    </tr>
+    <tr><td colspan="5"><hr></td></tr>
+    {% endfor %}
+    
+    </table>
+    
+    </center>
+    
+{% endblock %}

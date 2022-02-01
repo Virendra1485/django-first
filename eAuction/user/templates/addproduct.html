@@ -1,0 +1,98 @@
+{% extends 'userhome.html' %}
+
+{% block main %}
+
+<script>
+
+function fetchSubCategory(c)
+{
+    var xhttp=new XMLHttpRequest() 
+    xhttp.open("GET","/user/fetchSubCategoryAJAX/?cnm="+c,true)       
+    xhttp.send()
+
+    xhttp.onreadystatechange=function(){
+        if(xhttp.readyState==4 && xhttp.status==200)
+        {
+          document.getElementById("response").innerHTML=xhttp.responseText    
+        }
+    }
+
+}
+
+</script>
+
+<a href="/user/viewproductuser/" >View & manage product</a>
+
+<center>
+    <font style="font-size:20px" color="orange">{{output}}</font>
+    <form method="post" action=/user/addproduct/ enctype="multipart/form-data" >
+    {% csrf_token %}
+    <table>
+    <tr>
+    <td colspan="2">
+    <center>
+    <h2>Add Product Here!!!</h2>           
+    </center>
+    </td>
+    </tr>
+    <tr>
+    <td>Title</td>
+    <td><input type="text" name="title" placeholder="Enter location title"/></td>
+    </tr>
+
+    <tr>
+    <td>Category</td>
+    <td>
+    <select name="category" onchange="fetchSubCategory(this.value)" >
+    <option>Select category</option>
+    {% for row in clist %}
+    <option>{{row.catnm}}</option>
+    {% endfor %}
+    </select>
+    </td>
+    </tr>
+
+    <tr>
+    <td>Sub Category</td>
+    <td>
+    <select name="subcategory" id="response">
+    <option>Select sub category</option>
+    </select>
+    </td>
+    </tr>
+    
+    <tr>
+    <td>Description</td>
+    <td><textarea name="description" placeholder="Enter location description"></textarea></td>
+    </tr>
+
+    <tr>
+    <td>Base Price</td>
+    <td><input type="text" name="bprice" placeholder="Enter base price"/></td>
+    </tr>
+    
+    <tr>
+    <td>Product Images</td>
+    <td>
+    Image 1 : <input type="file" name="file1" required/><br><br>	
+    Image 2 : <input type="file" name="file2" /><br><br>
+    Image 3 : <input type="file" name="file3" /><br><br>
+    Image 4 : <input type="file" name="file4" />
+    </td>
+    </tr>
+    
+    <tr>
+    <td colspan="2">
+    <center>
+    <input type="submit" name="s" value="Add Product"/>
+    </center>
+    </td>
+    </tr>
+    
+    </table>
+    
+    </form> 
+
+
+</center>    
+{% endblock %}

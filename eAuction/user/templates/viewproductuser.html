@@ -1,0 +1,78 @@
+{% extends 'userhome.html' %}
+
+{% block main %}
+
+
+<center>
+    <h1>View & Manage Users Here!!!</h1>
+    
+    <table>
+    <tr>
+    <th>ProductID</th>
+    <th>Title</th>
+    <th>Category</th>
+    <th>Subcategory</th>
+    <th>Description</th>
+    <th>BasePrice</th>
+    <th>Product Icon</th>
+    <th>Status</th>
+    <th>Action</th>    
+    </tr>   
+    <tr><td colspan="10"><hr></td></tr>
+    {% for row in plist %}
+    <tr>
+    <td>{{row.pid}}</td>
+    <td>{{row.title}}</td>
+    <td>{{row.category}}</td>
+    <td>{{row.subcategory}}</td>
+    <td>{{row.description}}</td>
+    <td>{{row.bprice}}</td>
+    <td>{{row.file1}}</td>
+    <td>
+    {% if row.status %}
+    <font color="green">Verified</font>
+    {% else %}
+    <font color="red">Not verified</font>
+    {% endif %}    
+    </td>
+    <td>
+    {% if row.status %}
+    <font><a href="/user/bidhistory/?pid={{row.pid}}" >View Bid History...</a></font>
+    {% else %}
+    
+    <form action={{paypalURL}} method="post">
+        <!-- Identify your business so that you can collect the payments. -->
+        <input type="hidden" name="business" value={{paypalID}}>
+        
+        <!-- Specify a Buy Now button. -->
+        <input type="hidden" name="cmd" value="_xclick">
+        
+        <!-- Specify details about the item that buyers will purchase. -->
+        <input type="hidden" name="item_name" value={{row.pid}}>
+        <input type="hidden" name="item_number" value=1>
+        <input type="hidden" name="amount" value="200">
+        <input type="hidden" name="currency_code" value="USD">
+        
+        <!-- Specify URLs -->
+        <input type='hidden' name='cancel_return' value=http://localhost:8000/user/cancel/ >
+        <input type='hidden' name='return' value=http://localhost:8000/user/payment/?pid={{row.pid}}&uid={{sunm}}&amount=200   >
+        
+        <!-- Display the payment button. -->
+        <input type="image" name="submit" border="0"
+        src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif" alt="PayPal - The safer, easier way to pay online">
+        <img alt="" border="0" width="1" height="1" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" >
+    </form>    
+
+
+
+    {% endif %}    
+    </td>
+    </tr>
+    <tr><td colspan="10"><hr></td></tr>
+    {% endfor %}
+    
+    </table>
+    
+    </center>
+    
+{% endblock %}

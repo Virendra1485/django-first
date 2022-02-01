@@ -1,0 +1,42 @@
+{% extends 'userhome.html' %}
+
+{% block main %}
+<center>
+
+{% if bstatus %}
+<h1>Make Your Own Bid Here!!!!</h1>
+
+<form method="post" action="/user/mybid/">
+{% csrf_token %}
+<table cellspacing="10" cellpadding="10">
+<tr>
+    <td>ProductID</td>
+    <td><input type="text" name="pid" value="{{pid}}" readonly /></td>
+</tr>    
+<tr>
+    <td>Base Price</td>
+    <td><input type="text" name="bprice" value="{{bprice}}" readonly /></td>
+</tr>
+<tr>
+    <td>Current Price</td>
+    <td><input type="text" name="cprice" value="{{cprice}}" readonly /></td>
+</tr>
+<tr>
+    <td>Your bid Price</td>
+    <td><input type="text" name="bidprice" value="" /></td>
+</tr>
+<tr>
+    <td colspan="2"><input type="submit" value="Make Bid" /></td>
+</tr>
+</table>    
+
+</form>
+
+
+{% else %}
+<h1>Bidding completed</h1>
+<a href="/user/bidhistory/?pid={{pid}}" >View bidding history</a>
+{% endif %}
+
+</center>    
+{% endblock %}

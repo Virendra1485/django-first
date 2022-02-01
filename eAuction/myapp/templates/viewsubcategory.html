@@ -1,0 +1,49 @@
+{% extends 'master_template.html' %}
+
+{% block content %}
+
+<style>
+#category_main
+{
+    min-height:450px;
+    width:600px;
+}
+.category_part
+{
+    height:150px;
+    width:200px;
+    float:left;
+}    
+</style>
+
+<h1>Sub Category >> {{catnm}}</h1>
+
+<div id="category_main">
+{% for row in sclist %}
+<a href="">
+<div class="category_part">
+<center>
+<img src="{{media_url}}{{row.subcaticonname}}" height="100" width="150" />
+<br>
+<b>{{row.subcatnm}}</b>    
+</center>    
+</div>
+</a>
+{% endfor %}
+</div>
+
+{% endblock %}
+
+
+{% block sidebar %}
+<h2>Categories </h2>
+
+{% for row in clist %}
+<a href="/viewsubcategory/?catnm={{row.catnm}}">
+<p style="color:cornflowerblue;font-size:20px;">{{row.catnm}}</p>
+</a>
+<br>
+{% endfor %}
+
+
+{% endblock %}

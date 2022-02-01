@@ -1,0 +1,23 @@
+{% extends 'master_template.html' %}
+
+{% block menu %}        
+            <ul>
+                <li><a href="/myadmin/" class="current">Admin Home</a></li>
+                <li><a href="/myadmin/manageusers/" >Manage Users</a></li>
+                <li><a href="/myadmin/addcategory/" >Add Category</a></li>
+                <li><a href="/myadmin/addsubcategory/" >Add Sub Category</a></li>
+                <li><a href="/myadmin/cpmyadmin/" >Change Password</a></li>
+                <li><a href="/login/">Logout</a></li>
+            </ul>    
+<br><br><br>
+<h5>Welcome Admin : {{sunm}}</h5>            	
+{% endblock %}
+
+{% block banner %}
+{% endblock %}
+
+{% block main %}
+<center>
+<h1>Welcome to eAuction Admin panel</h1>    
+</center>    
+{% endblock %}

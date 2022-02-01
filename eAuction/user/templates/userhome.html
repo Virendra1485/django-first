@@ -1,0 +1,24 @@
+{% extends 'master_template.html' %}
+
+{% block menu %}        
+            <ul>
+                <li><a href="/user/" class="current">User Home</a></li>
+                <li><a href="/user/addproduct/">Add Product</a></li>
+                <li><a href="/user/bidproduct/">Bid Product</a></li>
+                <li><a href="/login/">Logout</a></li>
+            </ul>    	
+<br><br><br>
+<h5>Welcome User : {{sunm}}</h5>            
+{% endblock %}
+
+{% block banner %}
+{% endblock %}
+
+{% block main %}
+<center>
+<h1>Welcome to eAuction User panel</h1>    
+</center>    
+{% endblock %}
+
+
+/home/administrator/djangobatch1011/eAuction/user/templates/userinput.c

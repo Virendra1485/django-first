@@ -1,0 +1,140 @@
+{% load static %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<title>eAuction</title> 
+
+<!-- to link favicon -->
+<link href="{% static 'images/logo.jpeg' %}" rel="icon" />
+
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<!--
+Template 2033 Business
+http://www.tooplate.com/view/2033-business
+-->
+<link href="{% static 'tooplate_style.css' %}" rel="stylesheet" type="text/css" />
+
+</head>
+<body> 
+
+
+    
+<!-- start of header_wrapper -->    
+<div id="tooplate_header_wrapper">
+
+    <div id="tooplate_header">
+        <div id="site_title">
+        
+        	<h1><a href="#">eAuction<span>Buy & Sell Anything....</span></a></h1>
+        
+        </div> <!-- end of site_title -->
+        
+        <div id="header_phone_no">
+
+			Toll Free: <span>XX XXX XXX XXX</span>
+        
+        </div>
+        
+        <div class="cleaner_h10"></div>
+        
+        <div id="tooplate_menu">
+        	
+            <div id="home_menu"><a href="#"></a></div>
+            {% block menu %}        
+            <ul>
+                <li><a href="/" class="current">Home</a></li>
+                <li><a href="/about/">About Us</a></li>
+                <li><a href="/contact/">Contact</a></li>
+                <li><a href="/service/">Services</a></li>
+                <li><a href="/register/">Register</a></li>
+                <li><a href="/login/">Login</a></li>
+            </ul>    	
+            {% endblock %}
+        </div> <!-- end of tooplate_menu -->
+        
+    </div>
+    	  
+</div> 
+<!-- end of header_wrapper -->
+
+
+
+{% block banner %}
+<!-- start of banner section -->
+<div id="tooplate_middle_wrapper1">
+	<div id="tooplate_middle_wrapper2">
+		<div id="tooplate_middle">
+
+			<h1>BE ACTIVE<span>with latest bidding</span></h1>
+			
+			<p>This is application used to buy & sell products , embedded with auction process to facilitate sellers to sell their products at its highest price</p>
+			
+			<a href="#"><span>+</span> More</a>
+			
+		</div>
+	</div>
+</div>
+<!-- end of banner section -->
+{% endblock %}
+
+
+<!-- start of main section -->
+<div id="tooplate_main">
+    
+{% block main %}    
+    <!-- start of content section -->
+    <div id="tooplate_content">
+    {% block content %}    
+    <!-- Write your content here -->    
+    {% endblock %}
+    </div>
+    <!-- end of content section -->
+    
+
+    <!-- start of sidebar section -->
+        <div id="tooplate_sidebar">
+        {% block sidebar %}
+            <h2>Social links</h2>
+            
+            <ul class="tooplate_list">
+            <li><a href="#">@Facebook</a></li>
+            <li><a href="#">@Twitter</a></li>
+            <li><a href="#">@Gmail</a></li>
+            <li><a href="#">@Google+</a></li>
+
+            </ul>
+            
+
+            {% endblock %}
+            <div class="cleaner_h60"></div>
+            
+        </div>
+        <div class="cleaner"></div>
+        <!-- end of sidebar section -->
+        
+
+{% endblock %}        
+</div>
+<div class="cleaner"></div>  
+<!-- end of main section -->
+
+
+
+<!-- start of footer section -->
+<div id="tooplate_footer_wrapper">
+
+     <div id="tooplate_footer">
+    
+        <h2>Copyright © 2021-2022 <a href="#">eAuction</a> - Design: <a href="">DjangoBatch1011</a></h2>
+    
+    </div> <!-- end of tooplate_footer -->
+
+</div>
+<!-- end of footer section --> 
+    
+
+</body>
+</html>

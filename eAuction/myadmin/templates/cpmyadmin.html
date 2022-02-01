@@ -1,0 +1,33 @@
+{% extends 'adminhome.html' %}
+
+
+{% block main %}
+<center>
+<h1>Change Password Here!!!</h1>    
+
+
+<font color="blue">{{output}}</font>
+<form method="post" action="/myadmin/cpmyadmin/" enctype="multipart/form-data">
+{% csrf_token %}    
+<table cellspacing="10">
+<tr>
+    <td>Old Password</td>
+    <td><input type="password" name="opass" placeholder="Enter old password"/></td>
+</tr>
+<tr>
+    <td>New Password</td>
+    <td><input type="password" name="npass" placeholder="Enter new password"/></td>
+</tr>
+<tr>
+    <td>Confirm New Password</td>
+    <td><input type="password" name="cnpass" placeholder="Enter confirm new password"/></td>
+</tr>
+<tr>
+    <td colspan="2"><input type="submit"  value="Change password" /></td>
+</tr>    
+</table>
+</form>
+
+
+</center>    
+{% endblock %}

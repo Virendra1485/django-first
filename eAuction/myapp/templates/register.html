@@ -1,0 +1,76 @@
+{% extends 'master_template.html' %}
+
+{% block content %}
+
+<script>
+function checkEmailAvaibility(v)
+{
+  var xhttp=new XMLHttpRequest();
+  xhttp.open("GET","/checkEmailAvaibility/?v="+v,true)
+  xhttp.send()
+
+  xhttp.onreadystatechange=function(){
+      if(xhttp.readyState==4 && xhttp.status==200)
+      {
+        document.getElementById("response").innerHTML=xhttp.responseText
+      }
+  }
+}    
+</script>
+
+<h1>Register Here!!!</h1>
+<font color="blue">{{output}}</font>
+<form method="post" action="/register/" >
+{% csrf_token %}    
+<table cellspacing="10">
+<tr>
+    <td>Name</td>
+    <td><input type="text" name="name" placeholder="Enter name"/></td>
+</tr>
+<tr>
+    <td>Username</td>
+    <td>
+        <input type="text" name="username" placeholder="Enter username" onkeyup="checkEmailAvaibility(this.value)"/>
+        <p id="response"></p>
+    </td>
+</tr>
+<tr>
+    <td>Password</td>
+    <td><input type="password" name="password" placeholder="Enter password"/></td>
+</tr>
+<tr>
+    <td>Mobile</td>
+    <td><input type="text" name="mobile" placeholder="Enter mobile"/></td>
+</tr>
+<tr>
+    <td>Address</td>
+    <td><textarea cols="29" rows="5" name="address" placeholder="Enter address"></textarea></td>
+</tr>
+<tr>
+    <td>City</td>
+    <td>
+        <select style="width:100%;" name="city">
+            <option>Select City</option>
+            <option>Indore</option>
+            <option>Bhopal</option>
+            <option>Ujjain</option>
+        </select>
+    </td>
+</tr>
+<tr>
+        <td>Gender</td>
+        <td>
+            <input type="radio" name="gender" value="male" /> Male
+            &nbsp;&nbsp;
+            <input type="radio" name="gender" value="female" /> Female 
+        
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2"><input type="submit"  value="Register" /></td>
+    </tr>    
+</table>
+</form>
+
+
+{% endblock %}
